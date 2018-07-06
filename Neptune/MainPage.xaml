@@ -9,6 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+                    <!--<VisualState.Setters>
+                        <Setter Target="Associate.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="Associate.(RelativePanel.Below)" Value="Customer"/>
+                        <Setter Target="Save.(RelativePanel.Below)" Value="Associate"/>
+                    </VisualState.Setters>-->
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
+        <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="20,0,0,20" HorizontalAlignment="Center">
+                <TextBlock Text="Login" Width="200" TextAlignment="Center" />
+            </StackPanel>
+            <StackPanel Margin="20">
+                <TextBox x:Name="workerIdTextBox" Header="Id" Margin="0,24,0,0" HorizontalAlignment="Left" Width="200"/>
+                <TextBox x:Name="workerPasswordTextBox" Header="Password" Margin="0,24,0,0" HorizontalAlignment="Left" Width="200"/>
+                <Button x:Name="authenticateWorkerButton" 
+                        Click="AuthenticateWorkerButtonClick" 
+                        Content="Sign in" HorizontalAlignment="Center" 
+                        Margin="0,20,0,0"
+                        IsEnabled="{Binding ElementName=workerIdTextBox, Path=Text.Length, Mode=OneWay}"/>
+            </StackPanel>
+        </RelativePanel>
     </Grid>
 </Page>
