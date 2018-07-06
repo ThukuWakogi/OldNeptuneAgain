@@ -12,7 +12,7 @@ namespace Neptune
     {
         private static string conn;
         private static MySqlConnection connect;
-        public static MySqlCommand cmd;
+        private static MySqlCommand cmd;
         public static MySqlDataReader reader;
 
         public static async void OpenConnection()
