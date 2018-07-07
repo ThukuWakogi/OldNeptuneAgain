@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MySql.Data.MySqlClient;
+using Neptune.Pages;
+using Windows.UI.ViewManagement;
+using Windows.ApplicationModel.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,6 +33,7 @@ namespace Neptune
         public MainPage()
         {
             this.InitializeComponent();
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
         }
 
         public async void OpenConnection()
@@ -55,6 +59,7 @@ namespace Neptune
             if (Authenticated(Convert.ToInt32(workerIdTextBox.Text), workerPasswordTextBox.Text))
             {
                 await new MessageDialog("You Good!").ShowAsync();
+                Frame.Navigate(typeof(ControlPage));
             }
             else
             {

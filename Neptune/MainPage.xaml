@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:appmodel="using:Windows.ApplicationModel">
 
     <Grid>
         <VisualStateManager.VisualStateGroups>
@@ -15,11 +16,6 @@
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="640" />
                     </VisualState.StateTriggers>
-                    <!--<VisualState.Setters>
-                        <Setter Target="Associate.(RelativePanel.RightOf)" Value=""/>
-                        <Setter Target="Associate.(RelativePanel.Below)" Value="Customer"/>
-                        <Setter Target="Save.(RelativePanel.Below)" Value="Associate"/>
-                    </VisualState.Setters>-->
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
@@ -35,7 +31,8 @@
                         Click="AuthenticateWorkerButtonClick" 
                         Content="Sign in" HorizontalAlignment="Center" 
                         Margin="0,20,0,0"
-                        IsEnabled="{Binding ElementName=workerIdTextBox, Path=Text.Length, Mode=OneWay}"/>
+                        IsEnabled="{Binding ElementName=workerIdTextBox, Path=Text.Length, Mode=OneWay}"
+                        Style="{ThemeResource ButtonRevealStyle}"/>
             </StackPanel>
         </RelativePanel>
     </Grid>
