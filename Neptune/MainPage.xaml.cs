@@ -58,7 +58,7 @@ namespace Neptune
         {
             if (Authenticated(Convert.ToInt32(workerIdTextBox.Text), workerPasswordTextBox.Text))
             {
-                await new MessageDialog("You Good!").ShowAsync();
+                //await new MessageDialog("You Good!").ShowAsync();
                 Frame.Navigate(typeof(ControlPage));
             }
             else
