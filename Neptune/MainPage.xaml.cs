@@ -56,7 +56,7 @@ namespace Neptune
 
         private async void AuthenticateWorkerButtonClick(object sender, RoutedEventArgs e)
         {
-            if (Authenticated(Convert.ToInt32(workerIdTextBox.Text), workerPasswordTextBox.Text))
+            if (Authenticated(Convert.ToInt32(workerIdTextBox.Text), workerPasswordTextBox.Password))
             {
                 //await new MessageDialog("You Good!").ShowAsync();
                 Frame.Navigate(typeof(ControlPage));
@@ -79,13 +79,7 @@ namespace Neptune
                 cmd.Connection = connect;
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                while(reader.Read())
-                {
-                    if ( Security.HashSHA1(password + reader["salt"].ToString()) == reader["password"].ToString())
-                    {
-                        authenticate = true;
-                    }
-                }
+                while(reader.Read()) if ( Security.HashSHA1(password + reader["salt"].ToString()) == reader["password"].ToString()) authenticate = true;
                 CloseConnection();
             }
 
