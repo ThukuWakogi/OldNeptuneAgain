@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,7 @@ namespace Neptune
 {
     public sealed class Position
     {
-        private int _id;
-        public int Id
-        {
-            get => _id;
-            set => _id = value;
-        }
+        public int Id { get; set; }
 
         private string _position;
         public string PositionName
@@ -22,11 +18,6 @@ namespace Neptune
             set => _position = value ?? throw new ArgumentException(nameof(PositionName) + " cannot be null");
         }
 
-        private decimal _salary;
-        public decimal Salary
-        {
-            get => _salary;
-            set => _salary = value;
-        }
+        public decimal Salary { get; set; }
     }
 }

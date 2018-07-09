@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -7,30 +8,19 @@ using System.Threading.Tasks;
 
 namespace Neptune
 {
-    class PositionsPagePayLoad : INotifyPropertyChanged
+    class PositionsPagePayLoad
     {
-        private List<Position> _positions = new List<Position>();
-        public event PropertyChangedEventHandler PropertyChanged;
+        private ObservableCollection<Position> _positions = new ObservableCollection<Position>();
 
-        public List<Position> Positions
+        public ObservableCollection<Position> Positions
         {
             get => _positions;
-            set
-            {
-                if (_positions != value)
-                {
-                    _positions = value;
-                    OnPropertyChanged(nameof(Positions));
-                }
-            }
+            set { if (_positions != value) _positions = value; }
         }
 
-        public PositionsPagePayLoad(List<Position> incomingPositions)
+        public PositionsPagePayLoad(ObservableCollection<Position> incomingPositions)
         {
             _positions = incomingPositions;
         }
-
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs args) => PropertyChanged?.Invoke(this, args);
-        private void OnPropertyChanged(string propertyName) => this.OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
     }
 }

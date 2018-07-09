@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MySql.Data.MySqlClient;
 using Windows.UI.Popups;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,7 +29,7 @@ namespace Neptune.Pages
     {
         private string conn;
         private MySqlConnection connect;
-        private List<Position> positions = new List<Position>();
+        private ObservableCollection<Position> positions = new ObservableCollection<Position>();
 
         public ControlPage()
         {

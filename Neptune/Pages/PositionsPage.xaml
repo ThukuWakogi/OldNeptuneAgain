@@ -16,8 +16,20 @@
                 <AppBarToggleButton Icon="Add" Label="Add"/>
                 <AppBarToggleButton Icon="Edit" Label="Edit"/>
             </CommandBar>
-            <telerik:RadDataGrid x:Name="DataGrid" UserEditMode="External" RelativePanel.Below="PositionPageCommandBar"/>
+            <telerik:RadDataGrid x:Name="DataGrid" UserEditMode="External" RelativePanel.Below="PositionPageCommandBar" ManipulationCompleted="DataGrid_ManipulationCompleted"/>
         </RelativePanel>
         <!--</StackPanel>-->
+        <!--<GridView x:Name="PositionsGridView" ItemsSource="{x:Bind positions}" HorizontalAlignment="Stretch" Margin="10,0,0,0" SelectionMode="Extended">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Position">
+                    <Grid Background="Black"
+                          Margin="10">
+                        <TextBlock x:Name="PositionTextBlock" Text="{x:Bind Id}" FontSize="15" Margin="0,0,15,0"/>
+                        <TextBlock x:Name="PositionAgainTextBlock" Text="{x:Bind PositionName}" TextWrapping="WrapWholeWords" Margin="0,0,15,0"/>
+                        <TextBlock x:Name="SalaryTextBox" Text="{x:Bind Salary}" TextWrapping="WrapWholeWords" Margin="0,0,15,0"/>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>-->
     </Grid>
 </Page>
