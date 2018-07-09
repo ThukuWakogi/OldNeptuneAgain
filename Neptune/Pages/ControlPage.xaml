@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="ControlNavigationView" Margin="0,0,0,0" IsSettingsVisible="False" Header="Welcome" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView x:Name="ControlNavigationView" Margin="0,0,0,0" IsSettingsVisible="False" Header="Welcome" SelectionChanged="NavigationView_SelectionChanged" Canvas.ZIndex="0">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="OtherUser" Content="Positions" Tag="Positions"/>
                 <NavigationViewItem Icon="People" Content="Workers" Tag="Workers"/>

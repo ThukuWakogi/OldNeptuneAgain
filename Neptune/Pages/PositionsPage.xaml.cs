@@ -20,19 +20,20 @@ namespace Neptune
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class UnderConstructionPage : Page
+    public sealed partial class PositionsPage : Page
     {
-        public UnderConstructionPage()
+        public PositionsPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter)) DevTextBox.Text = $"{e.Parameter.ToString()} Under Development";
-            else DevTextBox.Text = "Still Under Development";
-
             base.OnNavigatedTo(e);
+            if (e.Parameter is PositionsPagePayLoad payLoad)
+            {
+                DataGrid.ItemsSource = payLoad.Positions;
+            }
         }
     }
 }

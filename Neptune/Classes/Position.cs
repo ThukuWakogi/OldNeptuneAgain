@@ -9,7 +9,7 @@ namespace Neptune
     public sealed class Position
     {
         private int _id;
-        public int ID
+        public int Id
         {
             get => _id;
             set => _id = value;
